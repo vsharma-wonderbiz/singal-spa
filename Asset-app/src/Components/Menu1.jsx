@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Upload, Plus, Download, Search, BarChart3, FolderTree, Activity, Info, MousePointer, Eye, Settings } from "lucide-react";
 import AddForm from "./AddForm";
-import RenderTress from "./RenderTress";
+import RenderTress from './RenderTress';
 import Search2 from "./Search2";
-import SignalOverlay from "./SignalOverlay";
+// import SignalOverlay from "./SignalOverlay";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "../store/UserSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { setUser } from "../store/UserSlice";
 
 // File Upload Component
 const FileUpload = ({ onFileChange }) => {
@@ -601,13 +601,13 @@ useEffect(() => {
         </div>
       </div>
 
-      <SignalOverlay
+      {/* <SignalOverlay
         show={showOverlay}
         node={selectedNode}
         mode={overlayMode}
         onClose={() => setShowOverlay(false)}
         onSuccess={onSuccessHandler}
-      />
+      /> */}
     </div>
   );
 }

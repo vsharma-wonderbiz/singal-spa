@@ -43,9 +43,16 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.1",
+    "@mui/material": "^7.3.1",
+    "axios": "^1.13.1",
     "lucide-react": "^0.548.0",
     "react": "^19.0.0",
+    "react-contexify": "^6.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.4",
     "react-toastify": "^11.0.5",
     "regenerator-runtime": "^0.14.1",
     "single-spa-react": "^6.0.2"
