@@ -8,6 +8,8 @@ import { Menu, Item, useContextMenu } from "react-contexify";
 import "react-contexify/dist/ReactContexify.css";
 import { useNavigate } from "react-router-dom";
 import { Signal } from "lucide-react";
+import { SIGNAL_EVENTS } from "../../../Shared-app/src/Events/signalEvents";
+import eventBus from "../../../Shared-app/src/utils/eventBus";
 
 const TreeNode = ({ 
   node, 
@@ -120,32 +122,40 @@ const TreeNode = ({
     });
   };
 
-  const handleAddSignal = () => {
+  const handleAddSignal = (node) => {
     // setShowOverlay(true);
     // setOverlayMode("add");
     // setSelectedNode(node);
-    const event=new CustomEvent("Open-Signal-Overlay",{
-      detail:{ asseid : node.id ,Mode:"Add"}
-
-    });
-
-    console.log("Event being dispatched:", event); 
-    window.dispatchEvent(event);
+   eventBus.dispatch(SIGNAL_EVENTS.OPEN_SIGNAL_OVERLAY,{
+    mode:"add",
+    node
+   });
   };
 
   const handleDisplaySignals = () => {
-    // try{
-    //   const response=await fetch(`https://localhost:7169/api/Signal/${node.id}`);
-    //   if(response.ok){
-    //     const data=response.json();
-    //     setSignals(data);
-    //   }else{
-    //     console.log("unabel to fetch the signal");
-    //   }
-    // }catch(error){
-    //   console.log(error.message);
-    // }
-    navigate("/display-signals", { state: node });
+  //   // try{
+  //   //   const response=await fetch(`https://localhost:7169/api/Signal/${node.id}`);
+  //   //   if(response.ok){
+  //   //     const data=response.json();
+  //   //     setSignals(data);
+  //   //   }else{
+  //   //     console.log("unabel to fetch the signal");
+  //   //   }
+  //   // }catch(error){
+  //   //   console.log(error.message);
+  //   // }
+  //   // navigate("/display-signals", { state: node });
+  //   const event =new CustomEvent("DisplaySignals",{
+  //     detail:{
+  //       asseid:node.id
+  //     }
+  //   })
+  // console.log("Event being dispatched:", event); 
+  //   window.dispatchEvent(event);  
+
+  //   window.location.href="/Signals"
+
+     window.location.href=`/Signals?assetID=${node.id}`;
   };
 
   const handleDragStart = (e, nodeId) => {
